@@ -1,0 +1,16 @@
+dataset,rows,columns,key,duplicate_keys,null_key_rows,status,message
+teams,13,3,team_id,0,0,OK,
+players,523,7,player_id,0,0,OK,
+player_match,12694,5,,,,OK,
+seasons,9,5,season_id,0,0,OK,
+player_stats,605,16,player_name,0,0,OK,
+match_features,2217,28,match_id,1122,0,REVIEW,1122 duplicate match_id values detected. This may be legitimate for a fact table.
+matches,577,19,match_id,0,0,OK,
+ball_by_ball_legacy,136590,16,,,,OK,
+auction_events,1508,19,,,,OK,
+auction_player_history,182,10,player_name,0,0,OK,
+retentions,106,7,,,,OK,
+json_matches,22524,12,match_id,0,0,OK,
+json_deliveries,11417384,16,,,,OK,
+player_features,523,24,player_name,0,0,OK,
+team_match_features,2217,29,match_id,1122,0,REVIEW,1122 duplicate match_id values detected. This may be legitimate for a fact table.
