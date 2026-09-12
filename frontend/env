@@ -1,0 +1,15 @@
+# Supabase Configuration
+SUPABASE_URL=https://occofxsdzlnvfsqpkvok.supabase.co
+SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jY29meHNkemxudmZzcXBrdm9rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODg2OTMwMTQsImV4cCI6MjEwNDI2OTAxNH0.lyxtGVf13NyuH4a99DoNOudWHKrxXlIzoJznJikB1TY
+SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9jY29meHNkemxudmZzcXBrdm9rIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4ODY5MzAxNCwiZXhwIjoyMTA0MjY5MDE0fQ.SoBOB3eUO2TBca82hDoIR48fxwqqYUcAzAyOinkox8c
+SUPABASE_JWT_SECRET=UtKoU6jQqqWM/dWqWvTXqaeDuYlQt9DQYOEnMpEeqUxGeabsF/ZLL62VpMXysWu6Ieq+gvolkjZHwuvgyI+ulw==
+
+# Database Configuration (Supabase)
+DB_URL=postgresql+asyncpg://postgres.occofxsdzlnvfsqpkvok:Qwerty123%40%23Zxoo00@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres
+
+# Redis Configuration
+REDIS_URL=redis://localhost:6379/0
+
+# App Settings
+ENVIRONMENT=development
+LOG_LEVEL=DEBUG
