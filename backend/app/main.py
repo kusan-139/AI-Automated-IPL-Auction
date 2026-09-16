@@ -19,7 +19,8 @@ app = FastAPI(
     title="IPL Auction Decision Intelligence Platform",
     description="AI-powered IPL Mega Auction intelligence platform",
     version="1.0.0",
-    lifespan=lifespan
+    lifespan=lifespan,
+    redirect_slashes=False  # Prevent 307 redirects that break HTTPS behind proxies
 )
 
 # CORS configuration
