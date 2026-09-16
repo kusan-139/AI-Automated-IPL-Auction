@@ -7,7 +7,6 @@ export function useAuctionSocket(sessionId: string) {
 
   // Derive WebSocket host from the same API URL used for REST calls
   const apiUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000/api/v1' : 'https://ai-automated-ipl-auction-production.up.railway.app/api/v1');
-  const isLocalhost = apiUrl.includes('localhost');
   const wsProtocol = apiUrl.startsWith('https') ? 'wss:' : 'ws:';
   const apiHost = new URL(apiUrl).host;
   const url = `${wsProtocol}//${apiHost}/api/v1/ws/auction/${sessionId}`;
