@@ -1,4 +1,7 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+const rawUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+const API_BASE_URL = rawUrl.replace(/\/+$/, ''); // strip trailing slashes
+
+console.log('[API] Base URL:', API_BASE_URL);
 
 export async function fetchWithAuth(endpoint: string, options: RequestInit = {}) {
   const headers: Record<string, string> = {
@@ -6,16 +9,28 @@ export async function fetchWithAuth(endpoint: string, options: RequestInit = {})
     ...((options.headers as Record<string, string>) || {})
   };
 
-  const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-    ...options,
-    headers
-  });
+  const url = `${API_BASE_URL}${endpoint}`;
+  console.log('[API] Fetching:', url);
 
-  if (!response.ok) {
-    throw new Error(`API error: ${response.status} ${response.statusText}`);
+  try {
+    const response = await fetch(url, {
+      ...options,
+      headers
+    });
+
+    console.log('[API] Response status:', response.status, response.statusText);
+
+    if (!response.ok) {
+      const errorBody = await response.text();
+      console.error('[API] Error body:', errorBody);
+      throw new Error(`API error: ${response.status} ${response.statusText}`);
+    }
+
+    // Handle empty responses (like 204 No Content)
+    const text = await response.text();
+    return text ? JSON.parse(text) : null;
+  } catch (err) {
+    console.error('[API] Fetch failed for', url, err);
+    throw err;
   }
-
-  // Handle empty responses (like 204 No Content)
-  const text = await response.text();
-  return text ? JSON.parse(text) : null;
 }
