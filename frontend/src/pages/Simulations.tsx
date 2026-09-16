@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Activity, Play, Plus, Clock, Filter, ArrowLeft, Trophy, TrendingUp } from 'lucide-react';
-import { fetchWithAuth } from "../lib/apiClient.ts";
+import { fetchWithAuth } from "../lib/apiClient";
 
 interface SimulationRun {
   id: string;
