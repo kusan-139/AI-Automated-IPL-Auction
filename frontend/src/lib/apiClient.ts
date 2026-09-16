@@ -1,5 +1,7 @@
-const rawUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
-const API_BASE_URL = rawUrl.replace(/\/+$/, ''); // strip trailing slashes
+const PRODUCTION_API = 'https://ai-automated-ipl-auction-production.up.railway.app/api/v1';
+const rawUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000/api/v1' : PRODUCTION_API);
+// Force https in production to prevent mixed-content blocking
+const API_BASE_URL = rawUrl.replace(/\/+$/, '').replace(/^http:\/\/(?!localhost)/, 'https://');
 
 console.log('[API] Base URL:', API_BASE_URL);
 
